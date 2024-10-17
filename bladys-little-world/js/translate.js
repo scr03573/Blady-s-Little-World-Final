@@ -83,4 +83,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Function to update content dynamically
+    function updateContent(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // Assuming the JSON contains text for translation
+                Object.keys(data.translations).forEach(key => {
+                    translations[currentLanguage][key] = data.translations[key];
+                });
+                updateLanguage(currentLanguage); // Update the UI with new translations
+            })
+            .catch(error => console.error('Error fetching translations:', error));
+    }
 });

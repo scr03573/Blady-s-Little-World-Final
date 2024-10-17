@@ -94,4 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
        6. Initialize WOW.js Animations
     ========================================== */
     new WOW().init();
+    
+    // Add a simple content update function
+    function updateContent(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('main-content').innerHTML = data.content; // Assuming your JSON contains an HTML structure
+            })
+            .catch(error => console.error('Error updating content:', error));
+    }
 });

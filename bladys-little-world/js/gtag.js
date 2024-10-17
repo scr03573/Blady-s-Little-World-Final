@@ -15,4 +15,15 @@
             'domains': ['bladyslittleworld.com']
         }
     });
+
+    // Function to handle content updates
+    function updateAnalyticsContent(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // Handle your content updates here
+                console.log('Analytics content updated:', data);
+            })
+            .catch(error => console.error('Error updating analytics content:', error));
+    }
 })();
