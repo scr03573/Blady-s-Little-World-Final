@@ -1,6 +1,28 @@
+// scripts.js
+
+/* ==========================================
+   Google Maps Initialization
+========================================== */
+window.initMap = function() {
+    const location = { lat: 42.345573, lng: -71.098326 }; // Update with your actual coordinates
+    const map = new google.maps.Map(document.getElementById('map'), {
+        center: location,
+        zoom: 15
+    });
+
+    new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "Blady's Little World"
+    });
+};
+
+/* ==========================================
+   Document Ready Function
+========================================== */
 document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================
-       1. Back to Top Button
+       Back to Top Button
     ========================================== */
     const backToTopButton = document.getElementById('back-to-top');
 
@@ -13,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         /* ==========================================
-           2. Navbar Scroll Behavior
+           Navbar Scroll Behavior
         ========================================== */
         const navbar = document.querySelector('.navbar');
         const mainContent = document.querySelector('main');
@@ -44,42 +66,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================
-       3. Smooth Scrolling for Anchor Links
+       Smooth Scrolling for Anchor Links
     ========================================== */
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                window.scrollTo({
-                    top: target.offsetTop - navbarHeight,
-                    behavior: 'smooth'
-                });
+            // Exclude carousel controls and other non-scroll links
+            if (this.getAttribute('href') !== '#' && !this.classList.contains('carousel-control-prev') && !this.classList.contains('carousel-control-next')) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    window.scrollTo({
+                        top: target.offsetTop - navbarHeight,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
 
     /* ==========================================
-       4. Google Maps Initialization
-    ========================================== */
-    window.initMap = function () {
-        const location = { lat: 42.345573, lng: -71.098326 }; // Update with your actual coordinates
-        const map = new google.maps.Map(document.getElementById('map'), {
-            center: location,
-            zoom: 15
-        });
-
-        new google.maps.Marker({
-            position: location,
-            map: map,
-            title: "Blady's Little World"
-        });
-    };
-
-    /* ==========================================
-       5. Get Directions Button
+       Get Directions Button
     ========================================== */
     const getDirectionsBtn = document.getElementById('get-directions');
     if (getDirectionsBtn) {
@@ -91,17 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================
-       6. Initialize WOW.js Animations
+       Initialize WOW.js
     ========================================== */
     new WOW().init();
-    
-    // Add a simple content update function
-    function updateContent(url) {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('main-content').innerHTML = data.content; // Assuming your JSON contains an HTML structure
-            })
-            .catch(error => console.error('Error updating content:', error));
-    }
 });

@@ -1,124 +1,224 @@
-/* Root Variables */
-:root {
-    --primary-color: #FFB6A7; /* Soft Peach */
-    --secondary-color: #FF6F61; /* Bright Coral */
-    --accent-color: #87CEEB; /* Sky Blue */
-    --neutral-light: #F0F0F0; /* Light Gray */
-    --neutral-dark: #333333; /* Dark Gray */
-    --white: #FFFFFF;
-    --text-color: var(--neutral-dark);
-}
-
-/* Body Styles */
+/* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--neutral-light);
-    color: var(--text-color);
-    font-size: 18px;
-    line-height: 1.6;
-    margin: 0; /* Ensure no default margin */
-    padding: 0; /* Ensure no default padding */
+    font-family: 'Quicksand', sans-serif; /* Updated font to 'Quicksand' */
+    background-color: #F7FCD0; /* Light Yellow from About Us section for entire site */
+    color: #343a40;
+    margin: 0;
+    padding: 0;
 }
 
-/* Headings */
-h1,
-h2,
-h3 {
-    font-family: 'Nunito', sans-serif;
-    color: var(--neutral-dark);
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #ffffff; /* Updated color for header background */
+    padding: 0; /* Remove default padding to make the header more compact */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to enhance header */
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Ensures the header is above other content */
+    display: flex;
+    align-items: center; /* Center-align items vertically */
+}
+
+.navbar-brand img {
+    max-height: 140px; /* Keep the original logo size */
+    padding: 5px 0; /* Add minimal padding around the logo */
+}
+
+.navbar-nav {
+    margin-left: auto; /* Push nav items to the right */
+}
+
+.nav-link {
+    color: #E07EDD; /* Updated header text to pink */
+    margin-left: 20px; /* Moderate spacing between nav links */
+    font-size: 1.2rem; /* Adjust font size for better visibility */
+    padding: 6px 12px; /* Reduce padding for more compact nav links */
+    border-radius: 5px; /* Optional: Round corners for a softer look */
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #C96DC2; /* Slightly darker hover effect for nav links */
+    background-color: rgba(255, 255, 255, 0.1); /* Add a slight hover background effect */
+}
+
+/* Navbar Toggle Button for mobile */
+.navbar-toggler {
+    font-size: 1.5rem; /* Make the toggle button larger */
+    color: #E07EDD; /* Ensure the toggler icon is also pink */
+}
+
+/* Body Content Margin Adjustment */
+body {
+    margin-top: 100px; /* Adjusted margin for more compact header */
 }
 
 /* Hero Section */
 .hero {
-    background: url('../assets/hero-family.jpg') no-repeat center center;
-    background-size: cover;
-    color: var(--white);
-    padding: 100px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    background-color: #F7FCD0; /* Same color as the rest of the site */
+    padding-top: 20px; /* Reduce top padding */
+    padding-bottom: 40px; /* Add more bottom padding to balance the layout */
+    position: relative;
+    text-align: center;
 }
 
 .hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+    color: #0184E0; /* Vibrant Blue for the title */
+    font-size: 2.4rem; /* Slightly larger for better visibility */
+    font-weight: 600; /* Add weight to the heading for emphasis */
+    z-index: 1;
+    margin-top: 50px; /* Adjust space between the header and title */
 }
 
-/* Buttons */
-.btn-primary,
-.btn-secondary {
+.hero p {
+    color: #E07EDD; /* Changed text color from green to pink */
+    font-size: 1.2rem; /* Slightly larger for better readability */
+    z-index: 1;
+}
+
+.hero .btn-primary, .hero .btn-secondary {
+    background-color: #0B57D9; /* Consistent blue for buttons */
     border: none;
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-    border-radius: 5px; /* Added for better aesthetics */
+    font-size: 1.2rem; /* Adjust button size for consistency */
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
+.hero .btn-primary:hover, .hero .btn-secondary:hover {
+    background-color: #3C34E0; /* Hover effect */
 }
 
-.btn-primary:hover {
-    background-color: #e09e8e; /* Slightly darker peach */
+/* Hero Section Divider */
+.hero-divider {
+    border-bottom: 2px solid #343a40; /* Add a line below the hero section */
+    margin-top: 20px;
+    margin-bottom: 40px; /* More space between hero and next section */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.btn-secondary {
-    background-color: var(--secondary-color);
+/* Section Padding */
+.py-5 {
+    padding: 3rem 0;
 }
 
-.btn-secondary:hover {
-    background-color: #e05a55; /* Slightly darker coral */
+/* Founders' Experience Section Enhancements */
+.founders-experience .section-card {
+    background-color: #ffffff; /* White background for better contrast */
+    border: 2px solid #E07EDD; /* Matching border color */
+    border-radius: 15px; /* Rounded corners */
+    padding: 25px; /* Add padding inside the box */
+    margin-bottom: 30px; /* Space between cards */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease-in-out;
 }
 
-/* Section Cards */
-.section-card {
-    border: 1px solid #e3e3e3;
-    padding: 20px;
-    border-radius: 15px;
-    background-color: var(--white);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.founders-experience .section-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
+    transform: scale(1.02); /* Small scaling effect on hover */
+}
+
+.founders-experience h3 {
+    color: #E07EDD; /* Updated color for the name titles */
+    font-size: 1.6rem; /* Increase the title size */
+    margin-bottom: 15px;
+}
+
+.founders-experience p {
+    color: #343a40; /* Standard text color for descriptions */
+    font-size: 1.2rem; /* Slightly larger text for readability */
+    line-height: 1.6; /* Better line spacing */
+}
+
+/* Add responsive behavior for smaller screens */
+@media (max-width: 767px) {
+    .founders-experience .section-card {
+        margin-bottom: 20px; /* Adjust margin for smaller screens */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Gallery Section */
+#gallery {
+    background-color: #F7FCD0; /* Matching background color */
+    color: #343a40; /* Ensure text color is consistent */
+    text-align: center;
+}
+
+#gallery h2 {
+    color: #0184E0; /* Consistent heading color */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #0184E0; /* Update carousel controls to match the theme */
+}
+
+#gallery img {
     margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for hover effects */
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #E07EDD; /* Updated border to pink */
 }
 
-.section-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+/* Dietary Needs Section */
+#dietary-needs {
+    background-color: #F7FCD0; /* Matching background color */
+    color: #343a40;
+}
+
+#dietary-needs h2 {
+    color: #0184E0; /* Consistent heading color */
+}
+
+#dietary-needs label {
+    color: #343a40;
+}
+
+#dietary-needs input,
+#dietary-needs textarea,
+#dietary-needs select {
+    border: 2px solid #E07EDD; /* Updated themed border to pink */
+    background-color: #ffffff; /* White background for inputs */
+    color: #343a40; /* Text color */
+}
+
+#dietary-needs .btn-primary {
+    background-color: #0184E0; /* Consistent button color */
+    border: none;
+}
+
+#dietary-needs .btn-primary:hover {
+    background-color: #3C34E0; /* Hover effect */
 }
 
 /* Footer */
 footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 20px 0; /* Added padding for better spacing */
+    background-color: #ffffff; /* Updated footer background color to white */
+    color: #E07EDD; /* Updated footer text color to pink */
+    padding: 1.5rem 0;
 }
 
-footer a {
-    color: var(--white);
-    text-decoration: none; /* Remove underline from links */
-    transition: color 0.3s ease;
+footer .social-links a {
+    color: #E07EDD; /* Updated social link color to pink */
+    margin: 0 10px;
 }
 
-/* Google Map Styling */
-#map {
-    height: 400px;
-    width: 100%;
-    max-width: 100%;
-    border-radius: 10px; /* Adds rounded corners */
-    overflow: hidden; /* Ensures content doesn't spill out */
+footer .social-links a:hover {
+    color: #C96DC2; /* Updated social link hover effect */
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .hero {
-        padding: 80px 0; /* Reduced padding for smaller screens */
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    #map {
-        height: 300px; /* Adjust height for smaller screens */
-    }
+/* Footer Operating Hours */
+footer .hours {
+    color: #E07EDD; /* Make operating hours text pink */
+    font-size: 1.2rem; /* Optional: Adjust font size for better visibility */
 }
 
 /* Back to Top Button */
@@ -126,8 +226,8 @@ footer a {
     position: fixed;
     bottom: 40px;
     right: 40px;
-    display: none; /* Hidden by default */
-    background-color: var(--secondary-color);
+    display: none;
+    background-color: #E07EDD; /* Updated background to pink */
     color: var(--white);
     border: none;
     border-radius: 50%;
@@ -147,40 +247,19 @@ footer a {
 }
 
 #back-to-top:hover {
-    background-color: var(--accent-color);
+    background-color: #C96DC2; /* Hover effect with a slightly darker pink */
     transform: scale(1.1);
 }
 
-/* Language Toggle Button */
-.language-toggle-btn {
-    background: none;
+/* Buttons (Request Information & Schedule a Tour) */
+.hero .btn-primary, .hero .btn-secondary {
+    background-color: #F78F1E; /* Orange color matching the logo */
     border: none;
-    color: var(--neutral-dark);
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0.375rem 0.75rem;
-    transition: color 0.3s ease;
+    font-size: 1.2rem; /* Adjust button size for consistency */
+    color: #fff; /* White text for contrast */
+    border-radius: 5px; /* Optional: Rounded corners for a softer look */
 }
 
-/* Navbar Scrolled State */
-.navbar.scrolled {
-    background-color: var(--secondary-color); /* Change to desired color */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
-}
-
-/* Prevent overlapping by adding top padding when navbar is scrolled */
-main.navbar-scrolled {
-    padding-top: 80px; /* Adjust this value based on your navbar's height */
-}
-
-/* Fade-in Animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in-visible {
-    opacity: 1;
-    transform: translateY(0);
+.hero .btn-primary:hover, .hero .btn-secondary:hover {
+    background-color: #FFAA3E; /* Slightly lighter orange for hover effect */
 }
