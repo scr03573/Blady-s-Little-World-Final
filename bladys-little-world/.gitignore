@@ -29,3 +29,11 @@ Thumbs.db
 
 # Environment variables
 .env
+
+# Ignore Generic Password YAML files
+*.yaml
+*.yml
+
+# Ignore specific credential files
+quick-glow-438420-v7-6c65890dbee5.json # Ignore the specific service account key
+*.json # This will ignore all JSON files, but since you've specified the service account key, this is safer.
