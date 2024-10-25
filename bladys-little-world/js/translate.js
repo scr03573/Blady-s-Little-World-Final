@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
             home: "Home",
             aboutUs: "About Us",
             gallery: "Gallery",
-            provideDietaryNeeds: "Provide Your Child's Dietary Needs",
+            provideDietaryNeeds: "Provide Your Child's Dietary Needs", // Navbar text
+            dietaryNeedsButton: "Dietary Needs", // Button text
             request: "Request Information",
             scheduleTour: "Schedule a Tour",
             welcome: "Blady’s Little World – A Family of Caring Hearts",
@@ -45,8 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tourEmailPlaceholder: "Email Address",
             preferredTourDateLabel: "Preferred Tour Date:",
             preferredTourDatePlaceholder: "mm/dd/yyyy",
-            preferredTourTimeLabel: "Preferred Tour Time:",
-            preferredTourTimePlaceholder: "--:-- --",
             footerOperatingHoursTitle: "Operating Hours",
             footerOperatingHoursDetail: "Mon-Fri: 7:00am - 5:00pm",
             footerOurProgramsTitle: "Our Programs",
@@ -57,15 +56,19 @@ document.addEventListener('DOMContentLoaded', () => {
             footerFamilyResourcesTitle: "Family Resources",
             footerRequestInfo: "Request Info",
             footerContactUsTitle: "Contact Us",
-            footerPhone: "+1 (234) 567-890",
+            footerPhone: "+1 (774) 623-0803",
             footerEmail: "bladyslittleworld@gmail.com",
-            footerAllRights: "All rights reserved."
+            footerAllRights: "All rights reserved.",
+            getDirections: "Get Directions",
+            ourLocation: "Our Location",
+            privacyPolicy: "Privacy Policy",
         },
         es: {
             home: "Inicio",
             aboutUs: "Sobre Nosotros",
             gallery: "Galería",
-            provideDietaryNeeds: "Proporcione las Necesidades Dietéticas de su Hijo",
+            provideDietaryNeeds: "Proporcione las Necesidades Dietéticas de su Hijo", // Navbar text
+            dietaryNeedsButton: "Necesidades Alimenticias", // Button text
             request: "Solicitar Información",
             scheduleTour: "Programar una Visita",
             welcome: "Blady’s Little World – Una Familia de Corazones Cariñosos",
@@ -105,8 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tourEmailPlaceholder: "Correo Electrónico",
             preferredTourDateLabel: "Fecha Preferida para la Visita:",
             preferredTourDatePlaceholder: "dd/mm/aaaa",
-            preferredTourTimeLabel: "Hora Preferida para la Visita:",
-            preferredTourTimePlaceholder: "--:-- --",
             footerOperatingHoursTitle: "Horario de Atención",
             footerOperatingHoursDetail: "Lun-Vie: 7:00am - 5:00pm",
             footerOurProgramsTitle: "Nuestros Programas",
@@ -117,14 +118,26 @@ document.addEventListener('DOMContentLoaded', () => {
             footerFamilyResourcesTitle: "Recursos para la Familia",
             footerRequestInfo: "Solicitar Información",
             footerContactUsTitle: "Contáctenos",
-            footerPhone: "+1 (234) 567-890",
+            footerPhone: "+1 (774) 623-0803",
             footerEmail: "bladyslittleworld@gmail.com",
-            footerAllRights: "Todos los derechos reservados."
+            footerAllRights: "Todos los derechos reservados.",
+            getDirections: "Obtener Direcciones",
+            ourLocation: "Nuestra Ubicación",
+            privacyPolicy: "Política de Privacidad",
         }
     };
 
-    // Current Language
-    let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
+    // Detect user's default language (en or es)
+    function detectDefaultLanguage() {
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang.startsWith('es')) {
+            return 'es'; // Default to Spanish if browser language starts with 'es'
+        }
+        return 'en'; // Default to English otherwise
+    }
+
+    // Set the current language from localStorage or based on user's browser language
+    let currentLanguage = localStorage.getItem('preferredLanguage') || detectDefaultLanguage();
 
     // Function to update text content based on selected language
     function updateLanguage(lang) {
@@ -161,9 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initLanguage();
 
-    /* ==========================================
-       Language Toggle Button
-    ========================================== */
+    // Language Toggle Button
     const languageToggle = document.getElementById('language-toggle');
     if (languageToggle) {
         languageToggle.addEventListener('click', () => {

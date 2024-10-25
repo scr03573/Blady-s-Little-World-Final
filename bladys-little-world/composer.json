@@ -1,0 +1,6 @@
+{
+    "require": {
+        "geoip2/geoip2": "^3.0",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
